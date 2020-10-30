@@ -11,13 +11,14 @@
  * struct printer - struct printer
  * @chars: a character.
  * @printer_pointer: a function pointer.
- */
+
 
 typedef struct printer
 {
 	char chars;
 	void (*printer_pointer)(va_list);
 } printer_t;
+*/
 
 int _printf(const char *format, ...);
 
