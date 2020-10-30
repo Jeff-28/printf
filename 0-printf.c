@@ -23,19 +23,17 @@ int _printf(const char *format, ...)
 
 		if (format[i] == '%')
 		{
-			i++;
-			if (format[i] == 'c')
+			if (format[i + 1] == 'c')
 			{
 				_putchar(va_arg(arguments, int));
 			}
-
-		i++;
+			i++;
 
 		}
 
-	va_end(arguments);
-
+		i++;
 	}
+	va_end(arguments);
 
 	return (0);
 
