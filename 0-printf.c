@@ -13,6 +13,11 @@ int _printf(const char *format, ...)
 
 	va_start(arguments, format);
 
+	if (format == NULL)
+	{
+		return (-1);
+	}
+
 	i = 0;
 	while (format[i] != '\0')
 	{
@@ -21,22 +26,27 @@ int _printf(const char *format, ...)
 			chars_printed = _putchar(format[i]);
 		}
 
-		if (format[i] == '%')
+		if (format[i] == '%' && format[i + 1] != '\0')
 		{
 			if (format[i + 1] == 'c')
 			{
 				chars_printed = _putchar(va_arg(arguments, int));
 			}
 
-			if (format[i + 1] == 's')
+			else if (format[i + 1] == 's')
 			{
 				chars_printed = _printstring(va_arg(arguments, char *));
 			}
 
-			if (format[i + 1] == '%')
+			else if (format[i + 1] == '%')
 			{
 				chars_printed = _putchar('%');
 			}
+			else
+			{
+				return (-1);
+			}
+
 
 			i++;
 
