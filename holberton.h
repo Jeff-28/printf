@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <stdarg.h>
 #include <stdlib.h>
+#include <string.h>
 
 /**
  * struct printer - struct printer
@@ -21,5 +22,7 @@ typedef struct printer
 int _printf(const char *format, ...);
 
 int _putchar(char c);
+
+int _printstring(char *s);
 
 #endif
