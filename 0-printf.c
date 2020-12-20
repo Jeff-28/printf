@@ -6,7 +6,7 @@
 */
 int _printf(const char *format, ...)
 {
-	int i, chars_printed = 0;
+	int i, count = 0;
 	va_list arguments;
 
 	va_start(arguments, format);
@@ -19,22 +19,26 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 		{
-			chars_printed = _putchar(format[i]);
+			_putchar(format[i]);
+			count++;
 		}
 
 		if (format[i] == '%' && format[i + 1] != '\0')
 		{
 			if (format[i + 1] == 'c')
 			{
-				chars_printed = _putchar(va_arg(arguments, int));
+				putchar(va_arg(arguments, int));
+				count++;
 			}
 			else if (format[i + 1] == 's')
 			{
-				chars_printed = _printstring(va_arg(arguments, char *));
+				_printstring(va_arg(arguments, char *));
+				count++;
 			}
 			else if (format[i + 1] == '%')
 			{
-				chars_printed = _putchar('%');
+				_putchar('%');
+				count++;
 			}
 			else
 			{
@@ -45,5 +49,5 @@ int _printf(const char *format, ...)
 		i++;
 	}
 	va_end(arguments);
-	return (chars_printed);
+	return (count);
 }
