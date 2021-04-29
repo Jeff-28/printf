@@ -2,11 +2,14 @@
 
 ### Description
 
-_printf is a custom funtion, made in C language, that implements the same functionality of printf from the stdio.h library, which basically prints a formatted string conversion. This project was part of the low level programming section at the Holberton School's curriculum. 
+_printf is a custom funtion, made in C language, that implements the same functionality of printf from the stdio.h library, which handles formatted output conversions as a variadic function. _printf returns the number of characters printed (excluding the null byte used to end output to strings). This project was part of the low level programming section at the Holberton School's curriculum. 
 
 ### Compilation
 
     $ gcc -Wall -Werror -Wextra -pedantic *.c
+    
+### Prototype
+    int _printf(const char *format, ...);
 
 ### Authorized functions and macros
 - write (man 2 write)
@@ -19,13 +22,13 @@ _printf is a custom funtion, made in C language, that implements the same functi
 
 ### Usage examples
 #### Character
-- Input: _printf("The first letter of my name is %c\n", 'J');
-- Output: The first letter of my name is J
+- Input: `_printf("The first letter of my name is %c\n", 'J');`
+- Output: *The first letter of my name is J*
 
 #### String
-- Input: _printf("%s are the first three letters of the alphabet\n", "abc");
-- Output: abc are the first three letters of the alphabet
+- Input: `_printf("%s are the first three letters of the alphabet\n", "abc");`
+- Output: *abc are the first three letters of the alphabet*
 
 #### Integer
-- Input: _printf("I'm %i years old\n", 30);
-- Output: I'm 30 years old
+- Input: `_printf("I'm %i years old\n", 30);`
+- Output: *I'm 30 years old*
